@@ -2,6 +2,7 @@ package com.kinglloy.iosched.di
 
 import com.kinglloy.iosched.MainApplication
 import com.kinglloy.iosched.shared.di.ViewModelModule
+import com.kinglloy.iosched.ui.signin.SignInViewModelDelegateModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -17,7 +18,8 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         AppModule::class,
         ActivityBindingModule::class,
-        ViewModelModule::class
+        ViewModelModule::class,
+        SignInViewModelDelegateModule::class
     ]
 )
 interface AppComponent : AndroidInjector<MainApplication> {

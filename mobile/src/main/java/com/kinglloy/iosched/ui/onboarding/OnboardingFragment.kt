@@ -1,5 +1,6 @@
 package com.kinglloy.iosched.ui.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,10 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.ViewModelProvider
 import com.kinglloy.iosched.databinding.FragmentOnboardingBinding
+import com.kinglloy.iosched.shared.result.EventObserver
 import com.kinglloy.iosched.shared.util.TimeUtils
 import com.kinglloy.iosched.shared.util.viewModelProvider
+import com.kinglloy.iosched.ui.MainActivity
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -36,6 +39,13 @@ class OnboardingFragment : DaggerFragment() {
             lifecycleOwner = viewLifecycleOwner
             pager.adapter = OnboardingAdapter(childFragmentManager)
         }
+
+        onboardingViewModel.navigateToMainActivity.observe(this, EventObserver {
+            requireActivity().run {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+        })
 
         return binding.root
     }

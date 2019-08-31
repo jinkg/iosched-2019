@@ -13,4 +13,6 @@
     <string name="onboarding_welcome_google_io_during" translation_description="The welcome message shown during the conference">Google I/O</string>
     <string name="onboarding_welcome_google_io_post" translation_description="The welcome message shown post the conference">Watch the I/O \'19 recap and check out #io19 on social</string>
     <string name="onboarding_signin" translation_description="The welcome message to encourage the user to sign-in to have better experience">Sign-in to receive I/O notifications and attendees can reserve seats for sessions.</string>
+
+    <string name="sign_in" translation_description="The description of a button to sign in.">Sign in</string>
 </resources>

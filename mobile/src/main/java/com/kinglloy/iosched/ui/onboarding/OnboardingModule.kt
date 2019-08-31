@@ -17,6 +17,14 @@ internal abstract class OnboardingModule {
     @ContributesAndroidInjector
     internal abstract fun contributeOnboardingFragment(): OnboardingFragment
 
+    @FragmentScoped
+    @ContributesAndroidInjector
+    internal abstract fun contributeWelcomePreConferenceFragment(): WelcomePreConferenceFragment
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    internal abstract fun contributeOnboardingSignInFragment(): OnboardingSignInFragment
+
     @Binds
     @IntoMap
     @ViewModelKey(OnboardingViewModel::class)

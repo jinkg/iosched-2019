@@ -31,6 +31,14 @@ inline fun <reified VM : ViewModel> Fragment.viewModelProvider(
 ) = ViewModelProvider(this, provider).get(VM::class.java)
 
 
+/**
+ * Like [Fragment.viewModelProvider] for Fragments that want a [ViewModel] scoped to the Activity.
+ */
+inline fun <reified VM : ViewModel> Fragment.activityViewModelProvider(
+    provider: ViewModelProvider.Factory
+) = ViewModelProvider(requireActivity(), provider).get(VM::class.java)
+
+
 fun <X, Y> LiveData<X>.map(body: (X) -> Y): LiveData<Y> {
     return Transformations.map(this, body)
 }
