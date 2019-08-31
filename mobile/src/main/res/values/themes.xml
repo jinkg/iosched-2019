@@ -47,7 +47,6 @@
         <item name="colorPrimaryDark">@color/cornflower_blue</item>
     </style>
 
-
     <style name="AppTheme" parent="Base.AppTheme" />
 
     <style name="AppTheme.Launcher">

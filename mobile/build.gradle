@@ -23,6 +23,7 @@ android {
 
 dependencies {
     implementation project(':shared')
+    testImplementation project(':androidTest-shared')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "androidx.core:core-ktx:$rootProject.coreVersion"
@@ -30,6 +31,11 @@ dependencies {
     // UI
     implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    // Architecture Components
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.lifecycleVersion"
+    testImplementation "androidx.arch.core:core-testing:$rootProject.archTestingVersion"
 
     // Dagger
     implementation "com.google.dagger:dagger-android:$rootProject.dagger"
@@ -46,4 +52,6 @@ dependencies {
 
     // Local unit tests
     testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    testImplementation "com.nhaarman:mockito-kotlin:$rootProject.mockitoKotlinVersion"
 }

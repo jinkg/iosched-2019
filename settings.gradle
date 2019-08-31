@@ -1,2 +1,2 @@
-include ':mobile', ':shared'
+include ':mobile', ':shared', ':androidTest-shared'
 rootProject.name='iosched'
