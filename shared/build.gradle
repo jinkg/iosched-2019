@@ -33,6 +33,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel:$rootProject.lifecycleVersion"
 
     // Utils
+    api "com.jakewharton.timber:timber:$rootProject.timberVersion"
     implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
 
     // Dagger
