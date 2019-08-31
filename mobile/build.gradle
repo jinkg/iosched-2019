@@ -29,6 +29,7 @@ dependencies {
 
     // UI
     implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
 
     // Dagger
     implementation "com.google.dagger:dagger-android:$rootProject.dagger"

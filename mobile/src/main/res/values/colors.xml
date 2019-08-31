@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="color_primary">@color/deep_sky_blue</color>
+    <color name="color_primary_dark">@color/warm_blue</color>
+    <color name="color_on_secondary">@color/white</color>
+    <color name="color_control_light">#39000000</color>
+
+    <!-- Scrim colors -->
+    <color name="system_ui_scrim_light">#B3FFFFFF</color> <!-- 70% white -->
+    <color name="system_ui_scrim_black">#40000000</color> <!-- 25% black -->
+    <!-- We use a dark scrim by default since light status is API 23+ -->
+    <color name="status_bar_scrim">@color/system_ui_scrim_black</color>
+    <!-- We use a dark scrim by default since light nav bar is API 27+ -->
+    <color name="nav_bar_scrim">@color/system_ui_scrim_black</color>
+
+    <!-- Other colors with dark mode alternatives -->
+    <color name="wifi_card_background">#e8f0fe</color>
+    <color name="event_card_header_background">@color/event_card_header_background_light</color>
+    <color name="list_divider">#1f000000</color>
+
+    <!-- Other colors -->
+    <color name="event_card_header_background_light">#f8f9fa</color>
+    <color name="event_card_header_background_dark">#252729</color>
 </resources>

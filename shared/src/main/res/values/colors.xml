@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="deep_sky_blue">#1a73e8</color>
+    <color name="warm_blue">#574ddd</color>
+    <color name="carolina_blue">#8ab4f8</color> <!-- colorPrimary in Dark mode-->
+    <color name="cornflower_blue">#669DF6</color> <!-- colorPrimaryDark in Dark mode-->
+
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="transparent">#0fff</color>
+</resources>
