@@ -5,6 +5,8 @@ import com.kinglloy.iosched.ui.LaunchModule
 import com.kinglloy.iosched.ui.LauncherActivity
 import com.kinglloy.iosched.ui.MainActivity
 import com.kinglloy.iosched.ui.onboarding.OnboardingActivity
+import com.kinglloy.iosched.ui.onboarding.OnboardingModule
+import com.kinglloy.iosched.ui.signin.SignInDialogModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -18,7 +20,12 @@ abstract class ActivityBindingModule {
     internal abstract fun launcherActivity(): LauncherActivity
 
     @ActivityScoped
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(
+        modules = [
+            OnboardingModule::class,
+            SignInDialogModule::class
+        ]
+    )
     internal abstract fun onboardingActivity(): OnboardingActivity
 
     @ActivityScoped

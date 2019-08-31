@@ -1,0 +1,11 @@
+apply plugin: 'java-library'
+apply plugin: "kotlin"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // ThreeTenBP for the shared module only. Date and time API for Java.
+    api "org.threeten:threetenbp:$rootProject.threetenbpVersion:no-tzdb"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
+}

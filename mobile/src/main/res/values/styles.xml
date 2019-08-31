@@ -23,6 +23,15 @@
         <item name="android:paddingTop">@dimen/margin_small</item>
     </style>
 
+    <!-- Text appearances -->
+
+    <!-- For titles, e.g. Event Detail, Speaker Detail -->
+    <style name="TextAppearance.IOSched.H1" parent="@style/TextAppearance.MaterialComponents.Headline5">
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:textSize">@dimen/text_size_h1</item>
+        <item name="fontFamily">@font/google_sans</item>
+    </style>
+
     <style name="TextAppearance.IOSched.ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:fontFamily">@font/google_sans</item>
         <item name="android:textSize" tools:ignore="SpUsage">20dp</item>
@@ -80,5 +89,12 @@
         <item name="foreground">?selectableItemBackground</item>
         <item name="showIcons">true</item>
         <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Onboarding -->
+    <style name="Widget.IOSched.OnboardingText">
+        <item name="android:textAppearance">@style/TextAppearance.IOSched.H1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">6sp</item>
     </style>
 </resources>
