@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "619725398687",
+    "firebase_url": "https://kinglloy-io-2019.firebaseio.com",
+    "project_id": "kinglloy-io-2019",
+    "storage_bucket": "kinglloy-io-2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619725398687:android:49233421798adeb8",
+        "android_client_info": {
+          "package_name": "com.kinglloy.iosched"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619725398687-amp59g5urcpaotu79cjol7ur9v4102f8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kinglloy.iosched",
+            "certificate_hash": "93c00c9cc1dab9d90dc69166e1011fc223fa628c"
+          }
+        },
+        {
+          "client_id": "619725398687-3dhdj7fqgfn9qgtj44q4eckjpnv2amgo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqMUOcKWvx4b4t7OwcntBIPApJb2i5k78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619725398687-3dhdj7fqgfn9qgtj44q4eckjpnv2amgo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

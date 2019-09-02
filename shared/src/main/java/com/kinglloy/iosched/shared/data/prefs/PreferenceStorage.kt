@@ -15,6 +15,7 @@ import kotlin.reflect.KProperty
  */
 interface PreferenceStorage {
     var onboardingCompleted: Boolean
+    var notificationsPreferenceShown: Boolean
 }
 
 /**
@@ -35,9 +36,13 @@ class SharedPreferenceStorage @Inject constructor(context: Context) : Preference
 
     override var onboardingCompleted by BooleanPreference(prefs, PREF_ONBOARDING, false)
 
+    override var notificationsPreferenceShown
+            by BooleanPreference(prefs, PREF_NOTIFICATIONS_SHOWN, false)
+
     companion object {
         const val PREFS_NAME = "iosched"
         const val PREF_ONBOARDING = "pref_onboarding"
+        const val PREF_NOTIFICATIONS_SHOWN = "pref_notifications_shown"
     }
 }
 

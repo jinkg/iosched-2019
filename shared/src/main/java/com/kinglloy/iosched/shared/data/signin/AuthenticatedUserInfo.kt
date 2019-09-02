@@ -20,5 +20,5 @@ interface AuthenticatedUserInfoBasic {
  * Extra information about the auth and registration state of the user.
  */
 interface AuthenticatedUserInfoRegistered {
-    fun isRegisterd(): Boolean
+    fun isRegistered(): Boolean
 }

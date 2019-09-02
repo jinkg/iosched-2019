@@ -1,6 +1,7 @@
 package com.kinglloy.iosched.di
 
 import com.kinglloy.iosched.MainApplication
+import com.kinglloy.iosched.shared.di.SharedModule
 import com.kinglloy.iosched.shared.di.ViewModelModule
 import com.kinglloy.iosched.ui.signin.SignInViewModelDelegateModule
 import dagger.BindsInstance
@@ -19,6 +20,7 @@ import javax.inject.Singleton
         AppModule::class,
         ActivityBindingModule::class,
         ViewModelModule::class,
+        SharedModule::class,
         SignInViewModelDelegateModule::class,
         SignInModule::class
     ]

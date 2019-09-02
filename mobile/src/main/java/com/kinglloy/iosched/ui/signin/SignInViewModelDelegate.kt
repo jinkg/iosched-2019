@@ -1,10 +1,14 @@
 package com.kinglloy.iosched.ui.signin
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import com.kinglloy.iosched.shared.data.signin.AuthenticatedUserInfo
 import com.kinglloy.iosched.shared.domain.auth.ObserveUserAuthStateUseCase
+import com.kinglloy.iosched.shared.domain.prefs.NotificationsPrefIsShownUseCase
+import com.kinglloy.iosched.shared.result.Event
 import com.kinglloy.iosched.shared.result.Result
+import com.kinglloy.iosched.shared.result.Result.Success
 import com.kinglloy.iosched.shared.util.map
 import javax.inject.Inject
 
@@ -33,6 +37,17 @@ interface SignInViewModelDelegate {
     val currentUserInfo: LiveData<AuthenticatedUserInfo?>
 
     /**
+     * Emits Events when a sign-in event should be attempted
+     */
+    val performSignInEvent: MutableLiveData<Event<SignInEvent>>
+
+    /**
+     * Emits an non-null Event when the dialog to ask the user notifications preference should be
+     * shown.
+     */
+    val shouldShowNotificationsPrefAction: LiveData<Event<Boolean>>
+
+    /**
      * Emit an Event on performSignInEvent to request sign-in
      */
     fun emitSignInRequest()
@@ -55,32 +70,60 @@ interface SignInViewModelDelegate {
 }
 
 internal class FirebaseSignInViewModelDelegate @Inject constructor(
-    observeUserAuthStateUseCase: ObserveUserAuthStateUseCase
+    observeUserAuthStateUseCase: ObserveUserAuthStateUseCase,
+    private val notificationsPrefIsShownUseCase: NotificationsPrefIsShownUseCase
 ) : SignInViewModelDelegate {
 
+    override val performSignInEvent = MutableLiveData<Event<SignInEvent>>()
     override val currentUserInfo: LiveData<AuthenticatedUserInfo?>
+    override val shouldShowNotificationsPrefAction = MediatorLiveData<Event<Boolean>>()
 
     private val _isSignedIn: LiveData<Boolean>
 
+    private val notificationsPrefIsShown = MutableLiveData<Result<Boolean>>()
+
     init {
         currentUserInfo = observeUserAuthStateUseCase.observe().map { result ->
-            (result as? Result.Success)?.data
+            (result as? Success)?.data
         }
-        _isSignedIn = MutableLiveData(false)
+        _isSignedIn = currentUserInfo.map { isSignedIn() }
+
+        observeUserAuthStateUseCase.execute(Any())
+
+        shouldShowNotificationsPrefAction.addSource(notificationsPrefIsShown) {
+            showNotificationPref()
+        }
+        shouldShowNotificationsPrefAction.addSource(_isSignedIn) {
+            // Refresh the preferences
+            notificationsPrefIsShown.value = null
+            notificationsPrefIsShownUseCase(Unit, notificationsPrefIsShown)
+        }
+    }
+
+    private fun showNotificationPref() {
+        val result = (notificationsPrefIsShown.value as? Success)?.data == false && isSignedIn()
+        // Show the notification if the preference is not set and the event hasn't been handled yet.
+        if (result && (shouldShowNotificationsPrefAction.value?.hasBeenHandled == false)) {
+            shouldShowNotificationsPrefAction.value = Event(true)
+        }
     }
 
     /**
      * Emit an Event on performSignInEvent to request sign-in
      */
     override fun emitSignInRequest() {
+        // Refresh the notificationsPrefIsShown because it's used to indicate if the
+        // notifications preference dialog should be shown
+        notificationsPrefIsShownUseCase(Unit, notificationsPrefIsShown)
 
+        performSignInEvent.postValue(Event(SignInEvent.RequestSignIn))
     }
 
     /**
      * Emit an Event on performSignInEvent to request sign-out
      */
     override fun emitSignOutRequest() {
-
+        performSignInEvent.postValue(Event(SignInEvent.RequestSignOut))
     }
 
     override fun observeSignedInUser(): LiveData<Boolean> {
@@ -92,7 +135,7 @@ internal class FirebaseSignInViewModelDelegate @Inject constructor(
     }
 
     override fun isRegistered(): Boolean {
-        return currentUserInfo.value?.isRegisterd() == true
+        return currentUserInfo.value?.isRegistered() == true
     }
 
     override fun getUserId(): String? {
