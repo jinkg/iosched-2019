@@ -43,6 +43,9 @@
         <item name="textAllCaps">false</item>
     </style>
 
+    <!-- Account dialogs -->
+    <style name="TextAppearance.IOSched.AccountDialog.Username" parent="@style/TextAppearance.IOSched.ListPrimary" />
+
     <!-- Intermediate style to make further style extensions below easier to follow -->
     <style name="TextAppearance.IOSched.Body2" parent="TextAppearance.MaterialComponents.Body2" />
 
@@ -89,6 +92,26 @@
         <item name="foreground">?selectableItemBackground</item>
         <item name="showIcons">true</item>
         <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Account dialogs -->
+    <style name="Widget.IOSched.BorderlessButton.NormalText" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textAppearance">?android:textAppearance</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="Widget.IOSched.AccountDialog.ActionButton" parent="">
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:drawablePadding">@dimen/margin_normal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">?listPreferredItemHeightSmall</item>
+        <item name="android:paddingBottom">@dimen/spacing_normal</item>
+        <item name="android:paddingRight">?listPreferredItemPaddingEnd</item>
+        <item name="android:paddingStart">?listPreferredItemPaddingStart</item>
+        <item name="android:paddingTop">@dimen/spacing_normal</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <!-- Onboarding -->

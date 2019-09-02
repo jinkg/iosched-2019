@@ -6,7 +6,8 @@ import android.widget.FrameLayout
 import androidx.core.view.updatePadding
 import androidx.lifecycle.ViewModelProvider
 import com.kinglloy.iosched.R
-import com.kinglloy.iosched.shared.util.doOnApplyWindowInsets
+import com.kinglloy.iosched.shared.result.EventObserver
+import com.kinglloy.iosched.util.doOnApplyWindowInsets
 import com.kinglloy.iosched.shared.util.inTransaction
 import com.kinglloy.iosched.shared.util.viewModelProvider
 import com.kinglloy.iosched.ui.signin.SignInDialogFragment
@@ -45,6 +46,10 @@ class OnboardingActivity : DaggerAppCompatActivity() {
                 add(R.id.fragment_container, OnboardingFragment())
             }
         }
+
+        viewModel.navigateToSignInDialogAction.observe(this, EventObserver {
+            openSignInDialog()
+        })
     }
 
     private fun openSignInDialog() {

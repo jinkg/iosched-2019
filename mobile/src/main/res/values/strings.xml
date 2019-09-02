@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">I/O 2019</string>
-
     <!-- Onboarding -->
     <string name="onboarding_get_started" translation_description="The label for the button to start using the app.">Get started</string>
     <string name="onboarding_welcome_to_google_i_o" translation_description="The welcome message shown at the onboarding screen of the app.">Welcome to Google I/O</string>
@@ -14,5 +12,17 @@
     <string name="onboarding_welcome_google_io_post" translation_description="The welcome message shown post the conference">Watch the I/O \'19 recap and check out #io19 on social</string>
     <string name="onboarding_signin" translation_description="The welcome message to encourage the user to sign-in to have better experience">Sign-in to receive I/O notifications and attendees can reserve seats for sessions.</string>
 
+    <!-- Sign in / Sign out -->
+    <string name="welcome" translation_description="Text shown instead of the user's name when the user is not signed in.">Welcome!</string>
+
+    <string name="dialog_sign_in_content" translation_description="The content of the dialog. When the user needs to sign in.">Sign in to save events, reserve seats and rate sessions (if an attendee). Actions will be synced from your account across app and site.</string>
     <string name="sign_in" translation_description="The description of a button to sign in.">Sign in</string>
+
+    <!-- Info pages - TODO: update with 2018 copy and set translatable="true". -->
+    <string name="tos_url" translatable="false">https://policies.google.com/terms</string>
+    <string name="privacy_policy_url" translatable="false">https://policies.google.com/privacy</string>
+
+    <!--Info pages - Strings ready to translate-->
+    <string name="settings_tos" translation_description="Open link to terms of service.">Terms of service</string>
+    <string name="settings_privacy_policy" translation_description="Open link to privacy policy.">Privacy policy</string>
 </resources>

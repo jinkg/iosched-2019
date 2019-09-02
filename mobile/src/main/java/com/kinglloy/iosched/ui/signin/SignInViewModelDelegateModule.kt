@@ -1,5 +1,6 @@
 package com.kinglloy.iosched.ui.signin
 
+import com.kinglloy.iosched.shared.domain.auth.ObserveUserAuthStateUseCase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 class SignInViewModelDelegateModule {
     @Singleton
     @Provides
-    fun provideSignInViewModelDelegate(): SignInViewModelDelegate {
-        return FirebaseSignInViewModelDelegate()
+    fun provideSignInViewModelDelegate(dataSource: ObserveUserAuthStateUseCase): SignInViewModelDelegate {
+        return FirebaseSignInViewModelDelegate(dataSource)
     }
 }

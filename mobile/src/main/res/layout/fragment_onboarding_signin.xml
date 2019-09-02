@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -28,56 +27,41 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/onboarding_margins" />
 
+        <ImageView
+            android:id="@+id/onboarding_schedule"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fitsSystemWindows="true"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toTopOf="@id/onboarding_signin_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_signin"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:srcCompat="@drawable/onboarding_schedule" />
+
         <Button
             android:id="@+id/button_signin"
             style="?borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small"
-            android:layout_marginEnd="@dimen/margin_normal"
             android:onClick="@{() -> activityViewModel.onSignInClicked()}"
             android:text="@string/sign_in"
             app:goneUnless="@{!activityViewModel.observeSignedInUser().booleanValue()}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Sign in" />
-
-        <ImageView
-            android:id="@+id/io_date_2019"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fitsSystemWindows="true"
-            android:importantForAccessibility="no"
-            app:layout_constraintBottom_toTopOf="@id/welcome_pre_message"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_signin"
-            app:layout_constraintVertical_chainStyle="spread_inside"
-            app:srcCompat="@drawable/onboarding_io_date_2019" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/welcome_pre_message"
+            android:id="@+id/onboarding_signin_message"
             style="@style/Widget.IOSched.OnboardingText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/onboarding_welcome_google_io_pre"
+            android:text="@string/onboarding_signin"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@id/date_location"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/io_date_2019" />
-
-        <TextView
-            android:id="@+id/date_location"
-            style="@style/Widget.IOSched.OnboardingText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/onboarding_date_location"
-            android:textColor="?android:textColorSecondary"
             app:layout_constraintBottom_toTopOf="@id/spacer"
             app:layout_constraintEnd_toEndOf="@id/guideline_end"
             app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/welcome_pre_message" />
+            app:layout_constraintTop_toBottomOf="@id/onboarding_schedule" />
 
         <Space
             android:id="@+id/spacer"
@@ -87,8 +71,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/date_location" />
-
+            app:layout_constraintTop_toBottomOf="@id/onboarding_signin_message" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

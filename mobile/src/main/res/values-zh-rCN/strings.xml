@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_get_started">开始使用</string>
+    <string name="onboarding_welcome_to_google_i_o">欢迎来到 Google I/O 大会</string>
+    <string name="onboarding_date_location">2019 年 5 月 7 日至 9 日\n加利福尼亚州山景城</string>
+    <string name="onboarding_label_days">天</string>
+    <string name="onboarding_label_hours">小时</string>
+    <string name="onboarding_label_mins">分</string>
+    <string name="onboarding_label_seconds">秒</string>
+    <string name="onboarding_welcome_google_io_pre">Google I/O 大会即将到来</string>
+    <string name="onboarding_welcome_google_io_during">Google I/O 大会</string>
+    <string name="onboarding_welcome_google_io_post">观看 2019 年 I/O 大会回顾并在社交网络上关注 #io19</string>
+    <string name="onboarding_signin">登录即可接收 I/O 大会通知，并且参加者可以预约各场研讨会的座位。</string>
+
+    <string name="welcome">欢迎！</string>
+
+    <string name="dialog_sign_in_content">登录即可保存活动、预约席位并为会议评分（如果是会议参加者）。系统将通过您的帐号同步在应用和网站中执行的操作。</string>
+    <string name="sign_in">登录</string>
+
+    <string name="settings_tos">服务条款</string>
+    <string name="settings_privacy_policy">隐私权政策</string>
+</resources>

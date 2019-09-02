@@ -19,7 +19,8 @@ import javax.inject.Singleton
         AppModule::class,
         ActivityBindingModule::class,
         ViewModelModule::class,
-        SignInViewModelDelegateModule::class
+        SignInViewModelDelegateModule::class,
+        SignInModule::class
     ]
 )
 interface AppComponent : AndroidInjector<MainApplication> {
