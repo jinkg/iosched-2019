@@ -1,7 +1,10 @@
 package com.kinglloy.iosched.ui.onboarding
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +19,9 @@ import com.kinglloy.iosched.ui.MainActivity
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
+private const val AUTO_ADVANCE_DELAY = 6_000L
+private const val INITIAL_ADVANCE_DELAY = 3_000L
+
 /**
  * Contains the pages of the onboarding experience and responds to [OnboardingViewModel] events.
  */
@@ -27,6 +33,18 @@ class OnboardingFragment : DaggerFragment() {
 
     private lateinit var binding: FragmentOnboardingBinding
 
+    private lateinit var pagerPager: ViewPagerPager
+
+    private val handler = Handler()
+
+    private val advancePager: Runnable = object : Runnable {
+        override fun run() {
+            pagerPager.advance()
+            handler.postDelayed(this, AUTO_ADVANCE_DELAY)
+        }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,6 +56,12 @@ class OnboardingFragment : DaggerFragment() {
             viewModel = onboardingViewModel
             lifecycleOwner = viewLifecycleOwner
             pager.adapter = OnboardingAdapter(childFragmentManager)
+            pagerPager = ViewPagerPager(pager)
+
+            pager.setOnTouchListener { _, _ ->
+                handler.removeCallbacks(advancePager)
+                false
+            }
         }
 
         onboardingViewModel.navigateToMainActivity.observe(this, EventObserver {
@@ -48,6 +72,16 @@ class OnboardingFragment : DaggerFragment() {
         })
 
         return binding.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        handler.postDelayed(advancePager, INITIAL_ADVANCE_DELAY)
+    }
+
+    override fun onDetach() {
+        handler.removeCallbacks(advancePager)
+        super.onDetach()
     }
 }
 
