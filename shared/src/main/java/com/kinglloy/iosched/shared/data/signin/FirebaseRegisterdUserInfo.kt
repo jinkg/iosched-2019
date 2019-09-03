@@ -1,5 +1,6 @@
 package com.kinglloy.iosched.shared.data.signin
 
+import android.net.Uri
 import com.google.firebase.auth.FirebaseUser
 
 /**
@@ -12,7 +13,11 @@ class FirebaseRegisterdUserInfo(
 ) : AuthenticatedUserInfo {
     override fun isSignedIn() = basicUserInfo?.isSignedIn() == true
 
+    override fun isAnonymous(): Boolean? = basicUserInfo?.isAnonymous()
+
     override fun getUid() = basicUserInfo?.getUid()
+
+    override fun getPhotoUrl() = basicUserInfo?.getPhotoUrl()
 
     override fun isRegistered() = isRegistered ?: false
 }
@@ -22,5 +27,9 @@ open class FirebaseUserInfo(
 ) : AuthenticatedUserInfoBasic {
     override fun isSignedIn() = firebaseUser != null
 
+    override fun isAnonymous(): Boolean? = firebaseUser?.isAnonymous
+
     override fun getUid() = firebaseUser?.uid
+
+    override fun getPhotoUrl(): Uri? = firebaseUser?.photoUrl
 }

@@ -1,5 +1,6 @@
 package com.kinglloy.iosched.ui.signin
 
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -35,6 +36,11 @@ interface SignInViewModelDelegate {
      * Live updated value of the current firebase user
      */
     val currentUserInfo: LiveData<AuthenticatedUserInfo?>
+
+    /**
+     * Live updated value of the current firebase users image url
+     */
+    val currentUserImageUri: LiveData<Uri?>
 
     /**
      * Emits Events when a sign-in event should be attempted
@@ -76,6 +82,7 @@ internal class FirebaseSignInViewModelDelegate @Inject constructor(
 
     override val performSignInEvent = MutableLiveData<Event<SignInEvent>>()
     override val currentUserInfo: LiveData<AuthenticatedUserInfo?>
+    override val currentUserImageUri: LiveData<Uri?>
     override val shouldShowNotificationsPrefAction = MediatorLiveData<Event<Boolean>>()
 
     private val _isSignedIn: LiveData<Boolean>
@@ -86,6 +93,11 @@ internal class FirebaseSignInViewModelDelegate @Inject constructor(
         currentUserInfo = observeUserAuthStateUseCase.observe().map { result ->
             (result as? Success)?.data
         }
+
+        currentUserImageUri = currentUserInfo.map { user ->
+            user?.getPhotoUrl()
+        }
+
         _isSignedIn = currentUserInfo.map { isSignedIn() }
 
         observeUserAuthStateUseCase.execute(Any())

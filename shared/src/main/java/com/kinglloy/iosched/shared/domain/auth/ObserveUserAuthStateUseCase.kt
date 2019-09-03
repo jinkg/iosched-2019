@@ -77,7 +77,7 @@ open class ObserveUserAuthStateUseCase @Inject constructor(
 
             result.postValue(
                 Result.Success(
-                    FirebaseRegisterdUserInfo(currentFirebaseUser.data, true)
+                    FirebaseRegisterdUserInfo(currentFirebaseUser.data, isRegisteredValue)
                 )
             )
         } else {

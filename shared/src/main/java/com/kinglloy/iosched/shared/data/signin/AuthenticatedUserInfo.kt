@@ -1,5 +1,7 @@
 package com.kinglloy.iosched.shared.data.signin
 
+import android.net.Uri
+
 /**
  * Interface to decouple the user info from Firebase.
  *
@@ -13,7 +15,11 @@ interface AuthenticatedUserInfo : AuthenticatedUserInfoBasic, AuthenticatedUserI
 interface AuthenticatedUserInfoBasic {
     fun isSignedIn(): Boolean
 
+    fun isAnonymous(): Boolean?
+
     fun getUid(): String?
+
+    fun getPhotoUrl(): Uri?
 }
 
 /**
