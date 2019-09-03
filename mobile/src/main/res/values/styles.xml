@@ -43,6 +43,10 @@
         <item name="textAllCaps">false</item>
     </style>
 
+    <style name="TextAppearance.IOSched.NoticeBody" parent="@style/Widget.IOSched.MultilineBody">
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <!-- Account dialogs -->
     <style name="TextAppearance.IOSched.AccountDialog.Username" parent="@style/TextAppearance.IOSched.ListPrimary" />
 
@@ -81,6 +85,14 @@
     <style name="Widget.IOSched.Tabs" parent="@style/Widget.MaterialComponents.TabLayout">
         <item name="tabTextAppearance">@style/TextAppearance.IOSched.Tab</item>
         <item name="tabIndicator">@drawable/tab_indicator</item>
+    </style>
+
+    <!-- textAppearance alone doesn't support line spacing attrs. Multiline body text will use
+         style="Widget.IOSched.MultilineBody" instead of the equivalent textAppearance.
+    -->
+    <style name="Widget.IOSched.MultilineBody">
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
     </style>
 
     <style name="Widget.IOSched.NavigationView" parent="@style/Widget.MaterialComponents.NavigationView">
@@ -137,5 +149,13 @@
         <item name="android:textAppearance">@style/TextAppearance.IOSched.H1</item>
         <item name="android:gravity">center</item>
         <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+
+    <!-- Misc -->
+    <style name="Widget.IOSched.EmptyResults">
+        <item name="android:drawablePadding">@dimen/margin_normal</item>
+        <item name="android:drawableTop">@drawable/no_items_found_204</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 </resources>

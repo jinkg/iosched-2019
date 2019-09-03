@@ -1,5 +1,7 @@
 package com.kinglloy.iosched.shared.util
 
+import android.os.Parcel
+import androidx.core.os.ParcelCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
@@ -38,6 +40,11 @@ inline fun <reified VM : ViewModel> Fragment.activityViewModelProvider(
     provider: ViewModelProvider.Factory
 ) = ViewModelProvider(requireActivity(), provider).get(VM::class.java)
 
+/** Write a boolean to a Parcel. */
+fun Parcel.writeBooleanUsingCompat(value: Boolean) = ParcelCompat.writeBoolean(this, value)
+
+/** Read a boolean from a Parcel. */
+fun Parcel.readBooleanUsingCompat() = ParcelCompat.readBoolean(this)
 
 fun <X, Y> LiveData<X>.map(body: (X) -> Y): LiveData<Y> {
     return Transformations.map(this, body)

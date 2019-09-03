@@ -5,6 +5,9 @@
     <string name="title_explore_io" translation_description="The title for the Augmented reality exploration screen where the user can explore the I/O venue in AR.">Explore I/O</string>
     <string name="title_info" translation_description="The title for the info screen where user can see various information, such as FAQ and travel info.">Info</string>
 
+    <!-- Schedule -->
+    <string name="filters" translation_description="The label for the button to filter sessions by their topics, room, and so on.">Filters</string>
+
     <string name="agenda" translation_description="The title for the agenda screen where user can see all the sessions they plan to attend.">Agenda</string>
 
     <!-- Onboarding -->
@@ -19,6 +22,8 @@
     <string name="onboarding_welcome_google_io_during" translation_description="The welcome message shown during the conference">Google I/O</string>
     <string name="onboarding_welcome_google_io_post" translation_description="The welcome message shown post the conference">Watch the I/O \'19 recap and check out #io19 on social</string>
     <string name="onboarding_signin" translation_description="The welcome message to encourage the user to sign-in to have better experience">Sign-in to receive I/O notifications and attendees can reserve seats for sessions.</string>
+
+    <string name="schedule_filters_empty" translation_description="The message shown when a schedule page is empty because no events match the current filters.">No events found.</string>
 
     <!-- Accessibility -->
     <string name="a11y_show_navigation" translation_description="Description of the menu button shown on top-level screens.">Show navigation menu</string>
@@ -44,4 +49,11 @@
     <!--Info pages - Strings ready to translate-->
     <string name="settings_tos" translation_description="Open link to terms of service.">Terms of service</string>
     <string name="settings_privacy_policy" translation_description="Open link to privacy policy.">Privacy policy</string>
+
+    <string name="no_network_connection" translation_description="Snackbar message when there is not network connection">No internet connection.</string>
+
+    <!-- AR -->
+    <string name="no_network_description" translation_description="Message to be shown when user tries to open the Explore feature without any network connection. [CHAR_LIMIT=500]">To use Explore I/O, try:\n\n - Turning off airplane mode\n\n - Turning on mobile data or Wi-Fi\n\n - Checking the signal in your area</string>
+    <string name="phone_does_not_support_arcore_title" translation_description="Title to be shown when user tries to open the Explore feature with a device which does not support ARCore. [CHAR_LIMIT=500]">Your phone doesn\'t support ARCore</string>
+    <string name="phone_does_not_support_arcore_message" translation_description="Message to be shown when user tries to open the Explore feature with a device which does not support ARCore. [CHAR_LIMIT=500]">Try another device, or borrow one from a friend</string>
 </resources>

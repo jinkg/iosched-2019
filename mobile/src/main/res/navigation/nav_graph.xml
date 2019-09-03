@@ -1,11 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/navigation_feed">
 
     <fragment
-        android:id="@+id/navigation_feed"
+        android:id="@id/navigation_schedule"
+        android:name="com.kinglloy.iosched.ui.schedule.ScheduleFragment"
+        android:label="@string/title_schedule"
+        tools:layout="@layout/fragment_schedule">
+        <action
+            android:id="@+id/to_session_detail"
+            app:destination="@id/navigation_session_detail" />
+        <action
+            android:id="@+id/to_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
+
+    <fragment
+        android:id="@id/navigation_info"
+        android:name="com.kinglloy.iosched.ui.info.InfoFragment"
+        android:label="@string/title_info" />
+
+    <fragment
+        android:id="@id/navigation_agenda"
+        android:name="com.kinglloy.iosched.ui.agenda.AgendaFragment"
+        android:label="@string/agenda" />
+
+    <fragment
+        android:id="@id/navigation_settings"
+        android:name="com.kinglloy.iosched.ui.settings.SettingsFragment"
+        android:label="@string/settings_title" />
+
+    <fragment
+        android:id="@id/navigation_feed"
         android:name="com.kinglloy.iosched.ui.feed.FeedFragment"
-        android:label="@string/title_home" />
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_feed">
+        <action
+            android:id="@+id/to_session_detail"
+            app:destination="@id/navigation_session_detail" />
+        <action
+            android:id="@+id/to_schedule"
+            app:destination="@id/navigation_schedule" />
+        <action
+            android:id="@+id/to_map"
+            app:destination="@id/navigation_map" />
+    </fragment>
+
+
+    <fragment
+        android:id="@id/navigation_map"
+        android:name="com.kinglloy.iosched.ui.map.MapFragment"
+        android:label="@string/title_map" />
+
+    <fragment
+        android:id="@id/navigation_codelabs"
+        android:name="com.kinglloy.iosched.ui.codelabs.CodelabsFragment"
+        android:label="@string/event_codelabs_title">
+        <action
+            android:id="@+id/to_map"
+            app:destination="@id/navigation_map" />
+    </fragment>
+
+    <fragment
+        android:id="@id/navigation_search"
+        android:name="com.kinglloy.iosched.ui.search.SearchFragment">
+        <action
+            android:id="@+id/to_session_detail"
+            app:destination="@id/navigation_session_detail" />
+        <action
+            android:id="@+id/to_speaker_detail"
+            app:destination="@id/navigation_speaker_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@id/navigation_session_detail"
+        android:name="com.kinglloy.iosched.ui.sessiondetail.SessionDetailFragment">
+        <action
+            android:id="@+id/to_session_detail"
+            app:destination="@id/navigation_session_detail" />
+        <action
+            android:id="@+id/to_speaker_detail"
+            app:destination="@id/navigation_speaker_detail" />
+        <action
+            android:id="@+id/to_map"
+            app:destination="@id/navigation_map" />
+    </fragment>
+
+    <fragment
+        android:id="@id/navigation_speaker_detail"
+        android:name="com.kinglloy.iosched.ui.speaker.SpeakerFragment">
+        <action
+            android:id="@+id/to_session_detail"
+            app:destination="@id/navigation_session_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@id/navigation_map_sublevel"
+        android:name="com.kinglloy.iosched.ui.map.MapFragment"
+        android:label="@string/title_map" />
+
+    <fragment
+        android:id="@id/navigation_no_network_ar"
+        android:name="com.kinglloy.iosched.ui.ar.NoNetworkConnectionFragment"
+        android:label="@string/no_network_connection"
+        tools:layout="@layout/fragment_no_network" />
+
+    <fragment
+        android:id="@id/navigation_phone_does_not_support_arcore"
+        android:name="com.kinglloy.iosched.ui.ar.ArCoreNotSupportedFragment"
+        android:label="@string/phone_does_not_support_arcore_title"
+        tools:layout="@layout/fragment_arcore_not_supported" />
+
 </navigation>

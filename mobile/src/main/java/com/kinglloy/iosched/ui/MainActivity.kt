@@ -154,5 +154,9 @@ class MainActivity : DaggerAppCompatActivity(), NavigationHost {
     }
 
     private fun navigateTo(navId: Int) {
+        if (navId == currentNavId) {
+            return // user tapped the current item
+        }
+        navController.navigate(navId)
     }
 }

@@ -6,6 +6,8 @@
     <string name="title_explore_io">探索 I/O 大会</string>
     <string name="title_info">信息</string>
 
+    <string name="filters">过滤条件</string>
+
     <string name="agenda">日程</string>
 
     <string name="onboarding_get_started">开始使用</string>
@@ -19,6 +21,8 @@
     <string name="onboarding_welcome_google_io_during">Google I/O 大会</string>
     <string name="onboarding_welcome_google_io_post">观看 2019 年 I/O 大会回顾并在社交网络上关注 #io19</string>
     <string name="onboarding_signin">登录即可接收 I/O 大会通知，并且参加者可以预约各场研讨会的座位。</string>
+
+    <string name="schedule_filters_empty">未找到任何活动。</string>
 
     <string name="a11y_show_navigation">显示导航菜单</string>
 
@@ -36,4 +40,10 @@
 
     <string name="settings_tos">服务条款</string>
     <string name="settings_privacy_policy">隐私权政策</string>
+
+    <string name="no_network_connection">未连接到互联网。</string>
+
+    <string name="no_network_description">要使用“探索 I/O 大会”，请尝试：\n\n - 关闭飞行模式\n\n - 开启移动数据网络或 WLAN\n\n - 检查您所在区域的信号强度</string>
+    <string name="phone_does_not_support_arcore_title">您手机不支持 ARCore</string>
+    <string name="phone_does_not_support_arcore_message">请尝试换一部设备，或者借用下朋友的设备</string>
 </resources>
