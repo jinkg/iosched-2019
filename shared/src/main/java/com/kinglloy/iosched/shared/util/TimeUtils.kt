@@ -24,8 +24,7 @@ object TimeUtils {
     )
 
     fun conferenceHasStarted(): Boolean {
-//        return ZonedDateTime.now().isAfter(ConferenceDays.first().start)
-        return false
+        return ZonedDateTime.now().isAfter(ConferenceDays.first().start)
     }
 
     fun conferenceHasEnded(): Boolean {

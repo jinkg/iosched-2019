@@ -23,6 +23,11 @@ internal abstract class OnboardingModule {
 
     @FragmentScoped
     @ContributesAndroidInjector
+    internal abstract fun contributeWelcomeDuringConferenceFragment():
+            WelcomeDuringConferenceFragment
+
+    @FragmentScoped
+    @ContributesAndroidInjector
     internal abstract fun contributeOnboardingSignInFragment(): OnboardingSignInFragment
 
     @Binds
