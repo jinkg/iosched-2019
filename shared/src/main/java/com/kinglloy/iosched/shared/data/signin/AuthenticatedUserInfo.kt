@@ -19,6 +19,8 @@ interface AuthenticatedUserInfoBasic {
 
     fun getUid(): String?
 
+    fun getDisplayName(): String?
+
     fun getPhotoUrl(): Uri?
 }
 

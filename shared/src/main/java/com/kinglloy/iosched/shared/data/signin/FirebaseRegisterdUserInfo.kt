@@ -17,6 +17,8 @@ class FirebaseRegisterdUserInfo(
 
     override fun getUid() = basicUserInfo?.getUid()
 
+    override fun getDisplayName(): String? = basicUserInfo?.getDisplayName()
+
     override fun getPhotoUrl() = basicUserInfo?.getPhotoUrl()
 
     override fun isRegistered() = isRegistered ?: false
@@ -30,6 +32,8 @@ open class FirebaseUserInfo(
     override fun isAnonymous(): Boolean? = firebaseUser?.isAnonymous
 
     override fun getUid() = firebaseUser?.uid
+
+    override fun getDisplayName(): String? = firebaseUser?.displayName
 
     override fun getPhotoUrl(): Uri? = firebaseUser?.photoUrl
 }

@@ -4,6 +4,8 @@ import com.kinglloy.iosched.shared.di.ActivityScoped
 import com.kinglloy.iosched.ui.LaunchModule
 import com.kinglloy.iosched.ui.LauncherActivity
 import com.kinglloy.iosched.ui.MainActivity
+import com.kinglloy.iosched.ui.MainActivityModule
+import com.kinglloy.iosched.ui.feed.FeedModule
 import com.kinglloy.iosched.ui.onboarding.OnboardingActivity
 import com.kinglloy.iosched.ui.onboarding.OnboardingModule
 import com.kinglloy.iosched.ui.signin.SignInDialogModule
@@ -29,6 +31,15 @@ abstract class ActivityBindingModule {
     internal abstract fun onboardingActivity(): OnboardingActivity
 
     @ActivityScoped
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(
+        modules = [
+            // activity
+            MainActivityModule::class,
+            // fragments
+            FeedModule::class,
+            // other
+            SignInDialogModule::class
+        ]
+    )
     internal abstract fun mainActivity(): MainActivity
 }

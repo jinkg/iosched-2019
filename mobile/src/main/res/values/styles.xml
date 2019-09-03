@@ -62,7 +62,14 @@
         <item name="fontFamily">@font/google_sans_medium</item>
     </style>
 
+    <!-- Widget Styls -->
+
     <style name="Widget.IOSched" parent="@android:style/Widget.Material" />
+
+    <style name="Widget.IOSched.AppBar" parent="@style/Widget.Design.AppBarLayout">
+        <item name="android:background">?attr/colorSurface</item>
+        <item name="android:elevation">8dp</item>
+    </style>
 
     <style name="Widget.IOSched.Toolbar" parent="Widget.MaterialComponents.Toolbar">
         <item name="android:paddingEnd">8dp</item>
@@ -92,6 +99,17 @@
         <item name="foreground">?selectableItemBackground</item>
         <item name="showIcons">true</item>
         <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Navigation -->
+    <style name="Widget.IOSched.NavigationBarContentFrameLayout" parent="android:Widget.Material">
+        <item name="navigationBarBorderColor">?attr/ioschedNavigationBarDividerColor</item>
+        <item name="navigationBarBorderSize">1dp</item>
+    </style>
+
+    <style name="Widget.IOSched.HashtagIoDecoration">
+        <item name="android:drawable">@drawable/hashtag_io19</item>
+        <item name="margin">@dimen/nav_item_horizontal_padding</item>
     </style>
 
     <!-- Account dialogs -->

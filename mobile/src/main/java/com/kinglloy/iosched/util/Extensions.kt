@@ -1,13 +1,18 @@
 package com.kinglloy.iosched.util
 
+import android.os.Build
 import android.view.View
+import androidx.core.os.BuildCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.ViewDataBinding
+import androidx.drawerlayout.widget.DrawerLayout
 
 /**
  * Yalin on 2019-09-02
  */
+
+fun View.isRtl() = layoutDirection == View.LAYOUT_DIRECTION_RTL
 
 inline fun <T : ViewDataBinding> T.executeAfter(block: T.() -> Unit) {
     block()
@@ -56,3 +61,17 @@ data class ViewPaddingState(
     val start: Int,
     val end: Int
 )
+
+fun DrawerLayout.shouldCloseDrawerFromBackPress(): Boolean {
+    // If we're running on Q, and this call to closeDrawers is from a key event
+    // (for back handling), we should only honor it IF the device is not currently
+    // in gesture mode. We approximate that by checking the system gesture insets
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        return rootWindowInsets?.let {
+            val systemGestureInsets = it.systemGestureInsets
+            return systemGestureInsets.left == 0 && systemGestureInsets.right == 0
+        } ?: false
+    }
+    // On P and earlier, always close the drawer
+    return true
+}
